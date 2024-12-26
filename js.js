@@ -32,7 +32,7 @@ const account2 = {
 };
 
 const account3 = {
-  owner: "Sergiy Pietrovski ",
+  owner: "Sergei Petrovskiy ",
   movements: [200, 730, 340, -300, -20, 500, 3000, -460],
   pin: 3333,
   movementsDates: [
