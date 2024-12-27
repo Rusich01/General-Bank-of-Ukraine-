@@ -42,7 +42,7 @@ nav {
 }
 
 .login {
-  display: flex;
+  transition: all 1.5s;
 }
 
 .login__input {
@@ -78,6 +78,28 @@ nav {
   transition: all 0.3s;
 }
 
+.exit__elements {
+  display: none;
+  transition: all 1.5s;
+}
+.welcome_header {
+  border: none;
+  font-size: 2.6rem;
+  font-family: inherit;
+  text-align: center;
+  width: 40rem;
+  margin-right: 1rem;
+  color: inherit;
+}
+.btn__exit {
+  padding: 10px;
+  border: none;
+  border-radius: 0.7rem;
+  font-size: 1.8rem;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+}
 .login__btn:hover,
 .login__btn:focus,
 .btn--sort:hover,
@@ -92,7 +114,12 @@ nav {
   margin: 4rem auto;
   display: grid;
   grid-template-columns: 5fr 3fr;
-  grid-template-rows: auto repeat(3, 15rem) auto;
+  /* grid-template-rows: auto repeat(3, 15rem) auto; */
+  grid-template-areas:
+    "menu  "
+    "block_one"
+    "block_two";
+
   gap: 2rem;
   transition: all 2s;
   opacity: 0;
@@ -213,10 +240,6 @@ nav {
 
 .operation--loan {
   background-image: linear-gradient(to top left, #39b385, #9be15d);
-}
-
-.operation--close {
-  background-image: linear-gradient(to top left, #e52a5a, #ff585f);
 }
 
 h2 {

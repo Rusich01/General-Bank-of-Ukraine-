@@ -60,6 +60,8 @@ const labelTimer = document.querySelector(".timer");
 
 const containerApp = document.querySelector(".app");
 const hint = document.querySelector(".hint");
+const exitElements = document.querySelector(".exit__elements");
+const formLogin = document.querySelector(".login");
 
 const containerMovements = document.querySelector(".movements");
 
@@ -86,6 +88,7 @@ const uppDateFunction = (account) => {
   setInterval(setTime, 1000);
   displayMovements(account);
   calcSum(account);
+  addHeaderElements();
 };
 //
 
@@ -151,6 +154,8 @@ btnLogin.addEventListener("click", (event) => {
   if (logIngAccount.pin === +inputLoginPin.value) {
     containerApp.classList.add("appIn");
     hint.style.display = "none";
+    formLogin.style.display = "none";
+    exitElements.style.display = "flex";
     uppDateFunction(logIngAccount);
   } else {
     containerApp.classList.remove("appIn");
@@ -159,19 +164,6 @@ btnLogin.addEventListener("click", (event) => {
   inputLoginPin.value = "";
 });
 
-// Out account
-btnClose.addEventListener("click", (event) => {
-  event.preventDefault();
-  if (
-    inputCloseUsername.value === logIngAccount.logIn &&
-    +inputClosePin.value === logIngAccount.pin
-  ) {
-    containerApp.classList.remove("appIn");
-    hint.style.display = "flex";
-  }
-  inputCloseUsername.value = "";
-  inputClosePin.value = "";
-});
 // add mony on balance
 
 btnLoan.addEventListener("click", (event) => {
@@ -221,3 +213,16 @@ const setTime = () => {
 };
 
 //
+const addHeaderElements = () => {
+  document.querySelector(
+    ".welcome_header"
+  ).textContent = `Вітаю, ${logIngAccount.owner}`;
+
+  document.querySelector(".btn__exit").addEventListener("click", (event) => {
+    event.preventDefault();
+    exitElements.style.display = "none";
+    formLogin.style.display = "flex";
+    containerApp.classList.remove("appIn");
+    hint.style.display = "flex";
+  });
+};
